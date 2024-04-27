@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity"
+    android:background="@drawable/menu_background">
+
+<!--    <TextView-->
+<!--        android:id="@+id/score"-->
+<!--        android:textSize="28sp"-->
+<!--        android:textAlignment="center"-->
+<!--        android:layout_margin="15dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/highScore"-->
+<!--        android:textSize="28sp"-->
+<!--        android:textAlignment="center"-->
+<!--        android:layout_margin="15dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="@color/black"/>-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/startBtn"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:src="@drawable/menu_start_btn"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/startBtn"-->
+<!--        android:layout_margin="15dp"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Start"-->
+<!--        android:backgroundTint="#FD397C"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+</LinearLayout>
