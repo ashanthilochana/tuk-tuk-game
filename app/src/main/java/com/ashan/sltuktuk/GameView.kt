@@ -21,6 +21,8 @@ class GameView (var c: Context, var gameTask: GameTask): View(c)
     private var sharedPreferences = c.getSharedPreferences("game_prefs", Context.MODE_PRIVATE)
 
     private var carAnimator: ObjectAnimator? = null
+    private var highScoreTextStatus = false
+    private var highScoreTextTimeCount = 0
 
 
     var viewWidth = 0
@@ -42,6 +44,9 @@ class GameView (var c: Context, var gameTask: GameTask): View(c)
         time = 0
         score = 0
         myCarPosition = 0
+        highScoreTextStatus = false
+        highScoreTextTimeCount = 0
+
 
         // Restart the game loop
         invalidate()
@@ -98,8 +103,11 @@ class GameView (var c: Context, var gameTask: GameTask): View(c)
                     iterator.remove() // Safe removal of element
                     score++
                     speed = 1 + Math.abs(score / 8)
-                    if (score > highScore) {
+                    if (score > highestScore) {
                         highScore = score
+                        if(highScoreTextTimeCount == 0){
+                            highScoreTextStatus = true
+                        }
                     }
                 }
             } catch (e: Exception) {
@@ -109,9 +117,22 @@ class GameView (var c: Context, var gameTask: GameTask): View(c)
 
         myPaint!!.color = Color.WHITE
         myPaint!!.textSize = 40f
+
         canvas.drawText("Score: $score", 80f, 80f, myPaint!!)
-//        canvas.drawText("High Score: $highestScore", 200f, 80f, myPaint!!)
         canvas.drawText("Speed: $speed", 380f, 80f, myPaint!!)
+        canvas.drawText("Last High Score: $highestScore", 680f, 80f, myPaint!!)
+
+        if (highScoreTextStatus) {
+            highScoreTextTimeCount++
+            if (highScoreTextTimeCount < 500) {
+                myPaint!!.color = Color.YELLOW
+                myPaint!!.textSize = 60f
+                canvas.drawText("New High Score!", 300f, 200f, myPaint!!)
+            } else {
+                highScoreTextStatus = false
+            }
+        }
+
         invalidate()
     }
 
